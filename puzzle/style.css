@@ -1,0 +1,360 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+
+    font-family: monospace;
+
+    background: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(5,3,0,1) 100%);
+    background-size: cover;
+    background-position: center;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.menu {
+    display: flex;
+    width: 600px;
+    height: 100px;
+    
+    justify-content: space-around;
+    align-items: center;
+}
+.turn, .time {
+    color: white;
+    font-size: 40px;
+    text-align: center;
+
+    filter: blur(0.5px);
+
+    animation: filter 1s ease;
+}
+.turn {
+    z-index: 3;
+    width: 20%;
+}
+.time {
+    z-index: 3;
+    width: 20%;
+}
+.pause {
+    z-index: 3;
+    width: 15%;
+
+    color: white;
+
+    background: none;
+    border: none;
+    outline: none;
+    filter: blur(0.5px);
+    
+    animation: filter 1s ease;
+}
+.pause:hover, .time:hover, .turn:hover {
+    filter: blur(0);
+    cursor: pointer;
+}
+.material-icons {
+    color: white;
+    transform: scale(3);
+}
+.game {
+    display: flex;
+    width: 600px;
+    height: 600px;
+    
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+}
+.menu, .game {
+    background: rgba(34, 34, 34, 0.507);
+}
+.element {
+    font-family: Arial;
+    font-size: 35px;
+    color: rgba(255, 255, 255, 0);
+    
+    border: none;
+    outline: none;
+    
+    animation: filter 1s ease;
+}
+@keyframes filter {
+    0% { filter: blur(10px) opacity(0) }
+    100% { filter: blur(0) opacity(1) }
+}
+.element:hover {
+    z-index: 2;
+    box-shadow: 0 0 10px black;
+    cursor: pointer;
+}
+.clone {
+    display: flex;
+
+    font-family: Arial;
+    color: rgba(255, 255, 255, 0);
+    font-size: 35px;
+
+    justify-content: center;
+    align-items: center;
+}
+.open {
+    position: absolute;
+    top: calc(50% - 350px);
+    left: calc(50% - 300px);
+
+    display: flex;
+    z-index: 2;
+    width: 600px;
+    height: 700px;
+    padding-top: 80px;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    background: rgba(0, 0, 0, 0.3);
+    
+    animation: filter 1s ease;
+}
+select {
+    width: 100px;
+    height: 50px;
+
+    font-size: 35px;
+
+    outline: none;
+}
+.start, .save, .load, .score, .show, .help, .sound {
+    height: 60px;
+    width: 250px;
+
+    font-family: monospace;
+    color: white;
+    font-size: 32px;
+
+    border: none;
+    background: none;
+    outline: none;
+    text-align: center;
+}
+.listItem {
+    display: flex;
+    height: 60px;
+    width: 370px;
+
+    filter: blur(0.5px);
+    justify-content: space-between;
+    align-items: center;
+}
+.listItem:not(:nth-child(1)) {
+    padding-right: 38px;
+}
+.start:hover {
+    background: rgba(255, 255, 255, 0.24);
+}
+.option:hover {
+    cursor: pointer;
+}
+.listItem:not(:nth-child(1)):hover {
+    background: rgba(255, 255, 255, 0.24);
+    cursor: pointer;
+}
+.listItem:hover {
+    filter: blur(0);
+}
+.win {
+    position: absolute;
+    top: calc(50% - 350px);
+    left: calc(50% - 300px);
+    
+    z-index: 2;
+    width: 600px;
+    height: 700px;
+    padding: 10px;
+    padding-top: 300px;
+
+    color: white;
+    font-family: monospace;
+    line-height: 150%;
+    font-size: 35px;
+    
+    text-align: center;
+    white-space: pre;
+    
+    background: rgba(0, 0, 0, 0.5);
+    
+    animation: filter 1s ease;
+}
+.afterWin {
+    display: flex;
+    width: 65%;
+    margin: auto;
+    
+    align-items: center;
+    justify-content: space-between;
+}
+.scoreMenu {
+    position: absolute;
+    top: calc(50% - 350px);
+    left: calc(50% - 300px);
+
+    z-index: 2;
+    width: 600px;
+    height: 700px;
+    padding-top: 80px;
+
+    color: white;
+    font-family: monospace;
+    font-size: 35px;
+    
+    text-align: center;
+    
+    background: rgba(0, 0, 0, 0.5);
+
+    animation: filter 1s ease;
+}
+.rank {
+    display: flex;
+    width: 80%;
+    height: 60px;
+    padding-top: 30px;
+    margin: auto;
+
+    font-family: monospace;
+    font-size: 25px;
+    color: white;
+    
+    justify-content: space-between;
+    text-align: start;
+}
+
+@media (min-width:1280px) and (min-height:1020px) {
+    .scoreMenu {
+        padding-top: 60px;
+    }
+    .rank {
+        height: 90px;
+        padding-top: 80px;
+
+        font-size: 35px;
+    }
+    .scoreMenu, .menu, .game, .win, .open {
+        width: 900px;
+    }
+    .win {
+        padding-top: 450px;
+        font-size: 45px;
+    }
+    .time, .turn {
+        width: 15%;
+        font-size: 45px;
+    }
+    .menu {
+        height: 120px;
+    }
+    .game {
+        height: 900px;
+    }
+    .element {
+        font-size: 45px;
+    }
+    .listItem {
+        height: 75px;
+        width: 540px;
+    }
+    .option {
+        width: 380px;
+        font-size: 45px;
+    }
+    select {
+        width: 140px;
+        height: 75px;
+        font-size: 45px;
+    }
+    .material-icons {
+        transform: scale(4);
+    }
+    .open, .win, .scoreMenu {
+        top: calc(50% - 510px);
+        left: calc(50% - 450px);
+        height: 1020px;
+    }
+    .start {
+        height: 75px;
+        width: 350px;
+    }
+    .listItem:not(:nth-child(1)) {
+        padding-right: 55px;
+    }
+}
+@media (max-width:620px) {
+    .scoreMenu {
+        padding-top: 60px;
+    }
+    .rank {
+        height: 20px;
+        padding-top: 30px;
+        font-size: 15px;
+    }
+    .scoreMenu, .menu, .game, .win, .open {
+        width: 320px;
+    }
+    .time, .turn {
+        font-size: 25px;
+    }
+    .menu {
+        height: 80px;
+    }
+    .game {
+        height: 320px;
+    }
+    .element {
+        font-size: 25px;
+    }
+    .open, .win, .scoreMenu {
+        top: calc(50% - 200px);
+        left: calc(50% - 160px);
+        height: 400px;
+    }
+    .listItem {
+        height: 35px;
+        width: 220px;
+    }
+    .win {
+        padding-top: 170px;
+        font-size: 20px;
+        line-height: 150%;
+    }
+    .afterWin {
+        width: 240px;
+    }
+    .start {
+        width: 160px;
+        height: 35px;
+    }
+    .option {
+        font-size: 20px;
+    }
+    .listItem select {
+        width: 60px;
+        height: 35px;
+        font-size: 20px;
+    }
+    .material-icons {
+        transform: scale(1.6);
+    }
+    .listItem:not(:nth-child(1)) {
+        padding-right: 18px;
+    }
+}
